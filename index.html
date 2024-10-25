@@ -5,7 +5,8 @@
     <title>前後端交互演示</title>
 
     <style type="text/css">
-      .targ {
+      .elem {
+        color: #f00;
         font-size: larger;
         font-family: Roboto, Arial, Helvetica, "Source Han Sans TC",
           "Noto Sans TC", sans-serif;
@@ -14,17 +15,21 @@
   </head>
 
   <body>
-    <p class="targ">You did not connect to the backend. 後端未連接。</p>
+    <p class="elem">You did not connect to the backend. 後端未連接。</p>
 
     <script type="text/javascript">
       document.addEventListener("DOMContentLoaded", () => {
         fetch("http://127.0.0.1:8080").then(async (resp) => {
           // parse JSON to object
           const dat = await resp.json()
-          // load fields in JSON and fill into DOM
-          document.querySelector(".targ").innerHTML = `${
-            dat.text
-          }<br />Time fetched: ${new Date(dat.timestamp).toString()}`
+          // assign DOM element
+          const elem = document.querySelector(".elem")
+          // load object fields and fill
+          elem.innerHTML = `${dat.text}<br />Time connected: ${new Date(
+            dat.timestamp
+          ).toString()}`
+          // change color
+          elem.style.color = "#0f0"
         })
       })
     </script>
