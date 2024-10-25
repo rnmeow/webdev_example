@@ -1,7 +1,7 @@
 webdev_example
 ==============
 
-This is a repository for simply demo Web frontend / backend interaction.
+This is a simple demo of Web frontend / backend interaction.
 
 * Frontend
 
