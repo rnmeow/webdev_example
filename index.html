@@ -8,8 +8,8 @@
       .elem {
         color: #f00;
         font-size: larger;
-        font-family: Roboto, Arial, Helvetica, "Source Han Sans TC",
-          "Noto Sans TC", sans-serif;
+        font-family: Roboto, Arial, Helvetica, 'Source Han Sans TC',
+          'Noto Sans TC', sans-serif;
       }
     </style>
   </head>
@@ -18,18 +18,15 @@
     <p class="elem">You did not connect to the backend. 後端未連接。</p>
 
     <script type="text/javascript">
-      document.addEventListener("DOMContentLoaded", () => {
-        fetch("http://127.0.0.1:8080").then(async (resp) => {
-          // parse JSON to object
+      document.addEventListener('DOMContentLoaded', () => {
+        fetch('http://127.0.0.1:8080').then(async (resp) => {
           const dat = await resp.json()
-          // assign DOM element
-          const elem = document.querySelector(".elem")
-          // load object fields and fill
+          const elem = document.querySelector('.elem')
+
           elem.innerHTML = `${dat.text}<br />Time connected: ${new Date(
-            dat.timestamp
+            dat.timestamp,
           ).toString()}`
-          // change color
-          elem.style.color = "#0f0"
+          elem.style.color = '#0f0'
         })
       })
     </script>
