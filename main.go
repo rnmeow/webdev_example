@@ -12,7 +12,7 @@ type Response struct {
 	Timestamp time.Time `json:"timestamp"`
 }
 
-func reqHandl(w http.ResponseWriter, r *http.Request) {
+func reqHandler(w http.ResponseWriter, r *http.Request) {
 	if r.Method != http.MethodGet {
 		http.Error(w, "Method not allowed :(", http.StatusMethodNotAllowed)
 
@@ -32,7 +32,7 @@ func reqHandl(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	http.HandleFunc("/", reqHandl)
+	http.HandleFunc("/", reqHandler)
 
 	fmt.Println("The server is now running at <http://localhost:8080> :)")
 	if err := http.ListenAndServe(":8080", nil); err != nil {
