@@ -35,7 +35,9 @@ func main() {
 	http.HandleFunc("/", reqHandler)
 
 	fmt.Println("The server is now running at <http://localhost:8080> :)")
-	if err := http.ListenAndServe(":8080", nil); err != nil {
+
+	err := http.ListenAndServe(":8080", nil)
+	if err != nil {
 		panic(err)
 	}
 }
