@@ -17,17 +17,15 @@
   <body>
     <p class="elem">You did not connect to the backend. 後端未連接。</p>
 
-    <script type="text/javascript">
-      document.addEventListener('DOMContentLoaded', () => {
-        fetch('http://127.0.0.1:8080').then(async (resp) => {
-          const dat = await resp.json()
-          const elem = document.querySelector('.elem')
+    <script type="text/javascript" defer>
+      fetch('http://127.0.0.1:8080').then(async (resp) => {
+        const dat = await resp.json()
+        const elem = document.querySelector('.elem')
 
-          elem.innerHTML = `${dat.text}<br />Time connected: ${new Date(
-            dat.timestamp,
-          ).toString()}`
-          elem.style.color = '#0f0'
-        })
+        elem.innerHTML = `${dat.text}<br />Time connected: ${new Date(
+          dat.timestamp,
+        ).toString()}`
+        elem.style.color = '#0f0'
       })
     </script>
   </body>
